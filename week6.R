@@ -197,7 +197,7 @@ evaluate.prob1 <- predict(reg.bwd, data.mdl[!split,], type = "response")
 library(ROCR)
 pred.eva1 <- prediction(evaluate.prob1, data.mdl$TargetB[!split])
 pred.eva <- prediction(evaluate.prob, data.mdl$TargetB[!split])
-pred<-prediction(train.prob, data.mdl$TargetB[!split])
+pred<-prediction(train.prob, data.mdl$TargetB[split])
 
 perf.eva1 <- performance(pred.eva1,"lift","rpp")
 perf.eva <- performance(pred.eva,"lift","rpp")
