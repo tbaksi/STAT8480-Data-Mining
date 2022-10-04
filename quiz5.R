@@ -103,7 +103,6 @@ y.valid <- organics.ann.encode[!split,"TargetBuy.1"]
 # part e-f #
 
 library(tensorflow)
-use_virtualenv("C:/Users/yzhang09/Documents/Rstudio/r-reticulate")
 library(keras)
 
 
