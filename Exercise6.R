@@ -116,14 +116,13 @@ organics.ann <- organics.ann %>% predict(ScaleParams, .)
 ## Hot encoding ##
 str(organics.ann)
 dummy <- dummyVars( ~ ., data = organics.ann[split, c(vars.ann, "TargetBuy")], fullRank = TRUE)
-organics.ann.encode<- organics.ann %>% 
-  predict(dummy, .) %>% 
-  as.data.frame 
+organics.ann.encode<- organics.ann %>% predict(dummy, .) 
 
-x.train <- organics.ann.encode %>% filter(split) %>% select(-TargetBuy.1) %>% as.matrix
-y.train <- organics.ann.encode %>% filter(split) %>% select(TargetBuy.1) %>% as.matrix
-x.valid <- organics.ann.encode %>% filter(!split) %>% select(-TargetBuy.1)  %>% as.matrix
-y.valid <- organics.ann.encode %>% filter(!split) %>% select(TargetBuy.1)  %>% as.matrix
+x.train <- organics.ann.encode[split, -ncol(organics.ann.encode)] 
+y.train <- organics.ann.encode[split,"TargetBuy.1"]
+x.valid <- organics.ann.encode[!split, -ncol(organics.ann.encode)] 
+y.valid <- organics.ann.encode[!split,"TargetBuy.1"]
+
 
 
 library(tensorflow)
