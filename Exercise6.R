@@ -131,7 +131,7 @@ library(keras)
 set_random_seed(42)
 
 
-ann <- keras_model_sequential %>% 
+ann <- keras_model_sequential() %>% 
   layer_dense(units = 4, activation = "tanh", input_shape = c(8)) %>% 
   layer_dense(units = 1, activation = "sigmoid")
 
