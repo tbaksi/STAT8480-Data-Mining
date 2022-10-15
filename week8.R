@@ -201,7 +201,6 @@ y.valid <- data.ann.encode[!split,"TargetB.1"]
 ### ANN Building ###
 ####################
 library(tensorflow)
-use_virtualenv("C:/Users/yzhang09/Documents/Rstudio/r-reticulate")
 library(keras)
 
 
